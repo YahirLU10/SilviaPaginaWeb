@@ -3,8 +3,6 @@ import { useScrollAnimation } from "../hooks/useScrollAnimation";
 import { Card } from "./ui/Card";
 import { Button } from "./ui/Button";
 
-import { BsWhatsapp } from "react-icons/bs";
-
 type ContactProps = Record<string, never>;
 
 export const Contact = React.forwardRef<HTMLElement, ContactProps>(
@@ -19,7 +17,7 @@ export const Contact = React.forwardRef<HTMLElement, ContactProps>(
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleChange = (
-      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ) => {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -49,7 +47,7 @@ export const Contact = React.forwardRef<HTMLElement, ContactProps>(
       } catch (err) {
         console.error(err);
         setStatus(
-          "No se pudo enviar en este momento. Intenta de nuevo o contáctanos por WhatsApp."
+          "No se pudo enviar en este momento. Intenta de nuevo o contáctanos por WhatsApp.",
         );
       } finally {
         setIsSubmitting(false);
@@ -70,7 +68,7 @@ export const Contact = React.forwardRef<HTMLElement, ContactProps>(
 
         <div className="max-w-4xl mx-auto fade-in-section">
           <Card>
-            <div className="grid md:grid-cols-2 gap-10">
+            <div className="grid gap-10">
               <div>
                 <h3 className="text-2xl font-bold text-white mb-4">
                   Envíanos un mensaje
@@ -142,28 +140,12 @@ export const Contact = React.forwardRef<HTMLElement, ContactProps>(
                   <p className="mt-4 text-center text-green-400">{status}</p>
                 )}
               </div>
-              <div className="flex flex-col justify-center">
-                <h3 className="text-2xl font-bold text-white mb-4">
-                  Otras formas de contacto
-                </h3>
-                <div className="space-y-4">
-                  <a
-                    href="https://wa.me/526675029030"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center p-4 rounded-lg bg-slate-800/50 hover:bg-slate-800/80 transition border border-slate-700"
-                  >
-                    <BsWhatsapp size={24} className="text-blue-400 mr-3" />
-                    <p className="font-semibold text-white">WhatsApp</p>
-                  </a>
-                </div>
-              </div>
             </div>
           </Card>
         </div>
       </section>
     );
-  }
+  },
 );
 
 Contact.displayName = "Contact";

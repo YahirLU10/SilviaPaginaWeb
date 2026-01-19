@@ -9,6 +9,8 @@ import { Values } from "./components/Values";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 
+import { BsWhatsapp } from "react-icons/bs";
+
 function App() {
   const aboutRef = useRef<HTMLElement>(null);
   const servicesRef = useRef<HTMLElement>(null);
@@ -41,6 +43,16 @@ function App() {
           <Contact ref={contactRef} />
         </main>
         <Footer />
+
+        <a
+          href="https://wa.me/526675029030"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          className="fixed right-5 bottom-20 z-50 rounded-full p-4 bg-[#25D366] text-slate-900 shadow-[0_0_8px_rgba(37,211,102,0.9),0_0_25px_rgba(37,211,102,0.6),0_0_50px_rgba(37,211,102,0.35)] hover:scale-110 transition-transform"
+        >
+          <BsWhatsapp size={26} />
+        </a>
       </div>
     </div>
   );
